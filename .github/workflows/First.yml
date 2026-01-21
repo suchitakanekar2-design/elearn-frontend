@@ -1,1 +1,46 @@
+name: building working for npm elarn-frontend
+run-name: build elarn-frontend
 
+on:
+ push:
+   branches:
+     - main
+jobs:
+  my_job:
+    name: deploy to dev
+    runs-on: ubuntu-latest   
+    steps:
+      - name: Checkout ${{vars.first}}
+        uses: actions/checkout@v6.0.2 
+      - name: Setup Node.js environment
+        # uses: actions/setup-node@v6.2.0
+        run: |
+          curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+          sudo apt install nodejs -y
+          
+      - name: Install dependency packages   
+        run: npm install
+      - name: Cache
+        uses: actions/cache@v5.0.2
+        with: 
+          path: node-modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+          
+      - name: npm build  
+        run: npm install
+      - name: build
+        run: npm run build
+        
+      - name:  Upload a Build Artifact
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: Build - ${{github.run_id}}
+          path: Build 
+          
+
+       
+      
+        
+        
+        
+      
