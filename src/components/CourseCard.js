@@ -1,4 +1,13 @@
 import React, { useState, useMemo } from 'react';
+const colorClasses = [
+  "bg-primary",
+  "bg-secondary",
+  "bg-success",
+  "bg-danger",
+  "bg-warning",
+  "bg-info",
+];
+
 
 const CourseCard = ({ course }) => {
   const [showLessons, setShowLessons] = useState(false);
