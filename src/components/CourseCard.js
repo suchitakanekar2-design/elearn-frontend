@@ -15,8 +15,17 @@ const CourseCard = ({ course }) => {
 
   // Assign a random color for the card based on the course's unique id
   const cardColorClass = useMemo(() => {
-    return colorClasses[Math.floor(Math.random() * colorClasses.length)];
-  }, [course.courseId]);
+  const colorClasses = [
+    "bg-primary",
+    "bg-secondary",
+    "bg-success",
+    "bg-danger",
+    "bg-warning",
+    "bg-info",
+  ];
+
+  return colorClasses[Math.floor(Math.random() * colorClasses.length)];
+}, [course.courseId]);
 
   const toggleLessons = () => {
     setShowLessons(!showLessons);
