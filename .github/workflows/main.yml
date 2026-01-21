@@ -13,7 +13,7 @@ jobs:
    build:
      runs-on: ubuntu-latest
      steps:
-       - name: Checkout
+       - name: Checkout ${{env.name}}
          uses: actions/checkout@v6.0.2
          
        - name: build
