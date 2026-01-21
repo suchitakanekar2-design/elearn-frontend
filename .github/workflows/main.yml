@@ -6,6 +6,7 @@ on:
   branches:
     - main
 env:
+  name: "Angel-suchita"
   APP: "elearn"
   managed_by: "Suchita"  
   
@@ -16,7 +17,7 @@ jobs:
        - name: Checkout ${{env.name}}
          uses: actions/checkout@v6.0.2
          
-       - name: build
+       - name: build ${{env.name}}
          run: echo " Building app $ APP managed by $managed_by" 
          
           
