@@ -1,0 +1,25 @@
+name: workflow for env and run-name
+run-name: creating sample workflow for run-name
+
+on:
+ push:
+  branches:
+    - main
+env:
+  APP: "elearn"
+  managed_by: "Suchita"  
+  
+jobs:
+   build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v6.0.2
+         
+       - name: build
+         run: echo " Building app $ APP managed by $managed_by" 
+         
+          
+          
+     
+    
